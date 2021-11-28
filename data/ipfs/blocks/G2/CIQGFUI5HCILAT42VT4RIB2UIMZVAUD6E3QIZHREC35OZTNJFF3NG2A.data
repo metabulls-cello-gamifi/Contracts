@@ -1,0 +1,89 @@
+
+£›dataSources:
+  - kind: ethereum/contract
+    mapping:
+      abis:
+        - file:
+            /: /ipfs/QmR4AqaAZY1mCUykJRw81ETyhxLY8RHrzHjujTJgFNQ2GC
+          name: GameContract
+      apiVersion: 0.0.5
+      entities:
+        - User
+        - NFT
+        - Game
+        - Bets
+      eventHandlers:
+        - event: 'Participate0(uint256,address,uint256,bool,bool)'
+          handler: handleParticipate0
+        - event: 'Participate1(uint256,address,uint256,bool,uint256)'
+          handler: handleParticipate1
+        - event: 'Bet(address,uint256,bool,uint256)'
+          handler: handleBet
+        - event: 'Result(uint256,bool,uint256,uint256)'
+          handler: handleResult
+        - event: 'ClaimBet(uint256,address,uint256)'
+          handler: handleClaimbet
+      file:
+        /: /ipfs/QmU1444jCQWBitYEsoVouZ6YcpPp1LWNdjNJtJrYukiCQ1
+      kind: ethereum/events
+      language: wasm/assemblyscript
+    name: GameContract
+    network: okex
+    source:
+      abi: GameContract
+      address: '0xa31e544Bb290925201f224Cd0f8e4E6eBa3331dE'
+      startBlock: 7213730
+  - kind: ethereum/contract
+    mapping:
+      abis:
+        - file:
+            /: /ipfs/QmXcjZwdK6Sf3Yjko34nDsirxJ4fp6QWLjFLckLSsJtY5Z
+          name: Nftcontract
+      apiVersion: 0.0.5
+      entities:
+        - User
+        - NFT
+      eventHandlers:
+        - event: 'mintnft(uint256,address,string,uint256[10])'
+          handler: handlemintnft
+        - event: locknft(uint256)
+          handler: handlelocknft
+        - event: unlocknft(uint256)
+          handler: handleunlocknft
+      file:
+        /: /ipfs/QmWiKQVoKZ5MDrooaswXv5vXwxkq5Wyt5gPmjXPHQMLDsN
+      kind: ethereum/events
+      language: wasm/assemblyscript
+    name: Nftcontract
+    network: okex
+    source:
+      abi: Nftcontract
+      address: '0x6bB2Acf5573FEBFF45927b204d0e3Ed85C83a1D6'
+      startBlock: 7213730
+  - kind: ethereum/contract
+    mapping:
+      abis:
+        - file:
+            /: /ipfs/Qma6uy4HzsoC7sH1XMnmsGfZ8jWpSWxQC4ntzbMkVkiVD8
+          name: Damage
+      apiVersion: 0.0.5
+      entities:
+        - User
+      eventHandlers:
+        - event: 'Transfer(indexed address,indexed address,uint256)'
+          handler: handleTransfer
+      file:
+        /: /ipfs/QmPevuhpJJBMnzp1isYsTaiMVMTWmyVSxUaqUw4xPUMnoc
+      kind: ethereum/events
+      language: wasm/assemblyscript
+    name: Damage
+    network: okex
+    source:
+      abi: Damage
+      address: '0x258e87F277B756ea97EAE3227F859512D97f9BCe'
+      startBlock: 7213730
+schema:
+  file:
+    /: /ipfs/QmaUWgP4AvAdFuiGGJ2jA6QTMUeqg3f8ubBqPW9NXp36gM
+specVersion: 0.0.2
+›

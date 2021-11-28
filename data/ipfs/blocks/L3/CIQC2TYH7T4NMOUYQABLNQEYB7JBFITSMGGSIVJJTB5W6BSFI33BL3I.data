@@ -1,0 +1,61 @@
+
+æÞtype User @entity {
+
+  "Addresds of User"
+  id: ID!
+  "Damage tokens"
+  dmg: BigInt
+  "Games Participated"
+  games: [BigInt!]! # address
+  "NFT's of user"
+  nftlist: [NFT!] @derivedFrom(field: "owner") # address
+  "own bet"
+  bets: [Bets!] @derivedFrom(field: "own")
+}
+
+
+
+
+
+type Game @entity {
+  "Equals to gameId"
+  id: ID!
+  particiapte0: User!
+  participate1: User
+  token0: BigInt!
+  token1: BigInt
+  amount0: BigInt!
+  amount1: BigInt!
+  bets: [Bets!] @derivedFrom (field: "game")
+  startblock: BigInt!
+  resultdec: Boolean!
+  damage0: BigInt
+  damage1: BigInt
+  winner: User 
+}
+
+type NFT @entity {
+  "Token id of nft"
+  id: ID!
+  owner: User!
+  uri: String!
+  power: [BigInt!]! 
+  locked: Boolean!
+}
+
+type Bets @entity {
+  "Gameid-Address"
+  id: ID!
+  amount: BigInt!
+  player: Boolean
+  own: User!
+  game: Game!
+  paid: Boolean!
+  winamount:BigInt
+
+}
+
+
+
+
+Þ
